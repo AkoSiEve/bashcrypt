@@ -41,7 +41,6 @@ pgkIsInstall(){
 
 encryptCode(){
 
-    echo "encrypting code"\n
     pgkIsInstall
     (bash-obfuscate $TARGET_FILE -o $fileName"_encrypted"$extensionFile)
 
@@ -56,7 +55,6 @@ decryptCode(){
 
     tempFile="tempFile.sh"
 
-    echo "decrypting code"
     pgkIsInstall
     (sed  's/eval/echo/g' $TARGET_FILE > $tempFile)
     (chmod +x $tempFile;./$tempFile > $fileName"_decrypted"$extensionFile)
@@ -73,11 +71,9 @@ decryptCode(){
 
 if [ $obsType == "encrypt" ]
 then
-    echo "this is encrypt"
     encryptCode
 elif [ $1 == "decrypt" ]
 then
-     echo "this is decrypt"
      decryptCode
 else
     banner

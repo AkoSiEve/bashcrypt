@@ -81,6 +81,7 @@ then
      decryptCode
 else
     banner
+    echo "Error: encyption type not valid."
     exit
 fi
 

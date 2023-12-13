@@ -27,7 +27,13 @@ fi
 
 
 pgkIsInstall(){
-
+    if ! which npm > /dev/null ;
+    then
+        echo "Error: npm is not installed."
+        (pkg install nodejs-lts -y)
+    #   exit 1
+    fi
+    
     if ! which bash-obfuscate > /dev/null ;
     then
         echo "Error: bash-obfuscate is not installed."
